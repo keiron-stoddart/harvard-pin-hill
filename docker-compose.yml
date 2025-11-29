@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: pin-hill-web
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount for development (comment out in production)
+      - ./templates:/app/templates
+      - ./static:/app/static
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
