@@ -17,6 +17,7 @@ dependencies = [
     "uvicorn[standard]",
     "jinja2",
     "python-dotenv>=1.2.1",
+    "sentry-sdk[fastapi]>=2.46.0",
 ]
 
 [project.optional-dependencies]
