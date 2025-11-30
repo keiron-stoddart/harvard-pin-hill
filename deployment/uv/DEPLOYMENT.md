@@ -24,6 +24,9 @@ source ~/.bashrc
 
 # Verify
 uv --version
+
+# Install python3.12 using uv
+uv python install 3.12
 ```
 
 ### 2. Clone the Repository
@@ -50,7 +53,7 @@ uv venv
 source .venv/bin/activate
 
 # Install dependencies
-uv pip install -e .
+uv sync
 ```
 
 ### 4. Test the Application
@@ -113,49 +116,8 @@ sudo systemctl status pinhill
 
 ## Manual Deployment Script
 
-Create a simple deployment script:
-
 ```bash
-nano /opt/pin-hill-website/deploy-uv.sh
-```
-
-Add this content:
-
-```bash
-#!/bin/bash
-set -e
-
-echo "🚀 Starting deployment..."
-
-cd /opt/pin-hill-website
-
-# Pull latest code
-echo "📥 Pulling latest code..."
-git pull origin main
-
-# Activate virtual environment
-source .venv/bin/activate
-
-# Update dependencies
-echo "📦 Updating dependencies..."
-uv pip install -e .
-
-# Restart service
-echo "🔄 Restarting service..."
-sudo systemctl restart pinhill
-
-# Show status
-echo "✅ Deployment complete! Service status:"
-sudo systemctl status pinhill --no-pager
-
-echo "📋 Recent logs:"
-sudo journalctl -u pinhill -n 20 --no-pager
-```
-
-Make it executable:
-
-```bash
-chmod +x /opt/pin-hill-website/deploy-uv.sh
+chmod +x /opt/pin-hill-website/deployment/uv/deploy.sh
 ```
 
 ## Deployment Workflow
@@ -167,8 +129,8 @@ When you want to deploy updates:
 ssh user@your-vm-ip
 
 # Run deployment script
-cd /opt/pin-hill-website
-./deploy-uv.sh
+cd /opt/pin-hill-website/deployment/uv
+./deploy.sh
 ```
 
 ## Set Up Nginx Reverse Proxy
@@ -192,7 +154,7 @@ Add this configuration:
 ```nginx
 server {
     listen 80;
-    server_name your-domain.com www.your-domain.com;
+    server_name harvardpinhill.com www.harvardpinhill.com;
 
     location / {
         proxy_pass http://127.0.0.1:8000;
@@ -219,7 +181,7 @@ sudo systemctl reload nginx
 sudo apt install -y certbot python3-certbot-nginx
 
 # Obtain SSL certificate
-sudo certbot --nginx -d your-domain.com -d www.your-domain.com
+sudo certbot --nginx -d harvardpinhill.com -d www.harvardpinhill.com
 ```
 
 ## Firewall Configuration

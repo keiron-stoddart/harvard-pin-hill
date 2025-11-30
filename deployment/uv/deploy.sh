@@ -20,7 +20,7 @@ source .venv/bin/activate
 
 # Update dependencies with uv
 echo "📦 Updating dependencies..."
-uv pip install -e .
+uv sync
 
 # Restart systemd service
 echo "🔄 Restarting service..."
