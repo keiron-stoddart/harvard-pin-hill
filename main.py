@@ -1,7 +1,11 @@
+import os
+from dotenv import load_dotenv
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+
+load_dotenv()
 
 app = FastAPI()
 
@@ -10,6 +14,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Set up templates
 templates = Jinja2Templates(directory="templates")
+templates.env.globals["POSTHOG_API_KEY"] = os.getenv("POSTHOG_API_KEY")
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):

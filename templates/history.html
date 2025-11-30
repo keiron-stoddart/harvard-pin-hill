@@ -1,77 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History | Pin Hill Conservation Land</title>
-    <meta name="description"
-        content="Learn about the rich history of Pin Hill, from its geological formation to the 18th-century slate quarries.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/styles.css">
-</head>
+{% block title %}History | Pin Hill Conservation Land{% endblock %}
 
-<body>
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="/" class="logo">Pin Hill</a>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
-            <div class="nav-links">
-                <a href="/" class="nav-link">Home</a>
-                <a href="/history" class="nav-link active">History</a>
-                <a href="/trails" class="nav-link">Trails</a>
-            </div>
+{% block description %}Learn about the rich history of Pin Hill, from its geological formation to the 18th-century slate
+quarries.{% endblock %}
+
+{% block content %}
+<header class="hero" style="height: 50vh; background-image: url('/static/images/history-hero.jpg');">
+    <div class="hero-content">
+        <h1 class="hero-title animate-on-scroll">Echoes of the Past</h1>
+        <p class="hero-subtitle animate-on-scroll">Geology, Industry, and Conservation</p>
+    </div>
+</header>
+
+<main>
+    <section class="section">
+        <div class="container" style="max-width: 800px;">
+            <h2 class="animate-on-scroll">The Harvard Conglomerate</h2>
+            <p class="animate-on-scroll">Pin Hill's story begins over a quarter billion years ago. The hill is
+                composed of a rare geological
+                formation known as the "Harvard Conglomerate," found almost exclusively in this town. These tilted
+                beds of dark gray, slate-like phyllite and pebbly conglomerate were formed from ancient layers of
+                black mud and gravel, creating the dramatic ledges we see today.</p>
+
+            <br><br>
+
+            <h2 class="animate-on-scroll">The Stonecutting Trade</h2>
+            <p class="animate-on-scroll">In the early 1700s, Pin Hill became a hub of industry. The slate-like
+                quality of the rock made it
+                perfect for quarrying. A flourishing stonecutting trade emerged, and today, you can still find
+                gravestones cut from Pin Hill slate in many nearby old cemeteries. The steep ledges and quarry cuts
+                visible from the trails are silent witnesses to this bustling past.</p>
+
+            <br><br>
+
+            <h2 class="animate-on-scroll">Water Power</h2>
+            <p class="animate-on-scroll">Below the hill runs Bowers Brook, a vital resource for early Harvard
+                residents. For over a century,
+                the brook powered numerous small mill enterprises. The remains of old mills and the wooden mill race
+                add another layer to the historical tapestry of the area.</p>
         </div>
-    </nav>
-
-    <header class="hero" style="height: 50vh; background-image: url('/static/images/history-hero.jpg');">
-        <div class="hero-content">
-            <h1 class="hero-title animate-on-scroll">Echoes of the Past</h1>
-            <p class="hero-subtitle animate-on-scroll">Geology, Industry, and Conservation</p>
-        </div>
-    </header>
-
-    <main>
-        <section class="section">
-            <div class="container" style="max-width: 800px;">
-                <h2 class="animate-on-scroll">The Harvard Conglomerate</h2>
-                <p class="animate-on-scroll">Pin Hill's story begins over a quarter billion years ago. The hill is
-                    composed of a rare geological
-                    formation known as the "Harvard Conglomerate," found almost exclusively in this town. These tilted
-                    beds of dark gray, slate-like phyllite and pebbly conglomerate were formed from ancient layers of
-                    black mud and gravel, creating the dramatic ledges we see today.</p>
-
-                <br><br>
-
-                <h2 class="animate-on-scroll">The Stonecutting Trade</h2>
-                <p class="animate-on-scroll">In the early 1700s, Pin Hill became a hub of industry. The slate-like
-                    quality of the rock made it
-                    perfect for quarrying. A flourishing stonecutting trade emerged, and today, you can still find
-                    gravestones cut from Pin Hill slate in many nearby old cemeteries. The steep ledges and quarry cuts
-                    visible from the trails are silent witnesses to this bustling past.</p>
-
-                <br><br>
-
-                <h2 class="animate-on-scroll">Water Power</h2>
-                <p class="animate-on-scroll">Below the hill runs Bowers Brook, a vital resource for early Harvard
-                    residents. For over a century,
-                    the brook powered numerous small mill enterprises. The remains of old mills and the wooden mill race
-                    add another layer to the historical tapestry of the area.</p>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Pin Hill Conservation. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="/static/js/script.js"></script>
-</body>
-
-</html>
+    </section>
+</main>
+{% endblock %}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Pin Hill Conservation Land{% endblock %}</title>
+    <meta name="description" content="{% block description %}Discover Pin Hill in Harvard, MA{% endblock %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+    <!-- PostHog -->
+    <script>
+        !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.async = !0, p.src = s.api_host + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function () { return u.toString(1) + ".people (stub)" }, o = "capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
+        posthog.init('{{ POSTHOG_API_KEY }}', { api_host: 'https://us.i.posthog.com' })
+    </script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="/" class="logo">Pin Hill</a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+            <div class="nav-links">
+                <a href="/" class="nav-link {% if request.url.path == '/' %}active{% endif %}">Home</a>
+                <a href="/history" class="nav-link {% if request.url.path == '/history' %}active{% endif %}">History</a>
+                <a href="/trails" class="nav-link {% if request.url.path == '/trails' %}active{% endif %}">Trails</a>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Pin Hill Conservation. All rights reserved.</p>
+            <p style="font-size: 0.875rem; opacity: 0.7; margin-top: 0.5rem;">Preserving Harvard's Natural Heritage</p>
+        </div>
+    </footer>
+
+    <script src="/static/js/script.js"></script>
+</body>
+
+</html>
