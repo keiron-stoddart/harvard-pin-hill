@@ -5,29 +5,38 @@ This directory contains all deployment-related files for the Pin Hill website.
 ## Deployment Options
 
 ### Option 1: uv + systemd (Recommended for small VMs)
-- **Guide**: [DEPLOYMENT-UV.md](./DEPLOYMENT-UV.md)
-- **Script**: [deploy-uv.sh](./deploy-uv.sh)
+- **Directory**: [uv/](./uv/)
+- **Guide**: [uv/DEPLOYMENT-UV.md](./uv/DEPLOYMENT-UV.md)
+- **Script**: [uv/deploy-uv.sh](./uv/deploy-uv.sh)
 - **Memory**: ~200-300 MB
 - **Best for**: e2-micro or similar small instances
 
 ### Option 2: Docker
-- **Guide**: [DEPLOYMENT.md](./DEPLOYMENT.md)
-- **Script**: [deploy.sh](./deploy.sh)
-- **Files**: [Dockerfile](./Dockerfile), [docker-compose.yml](./docker-compose.yml)
+- **Directory**: [docker/](./docker/)
+- **Guide**: [docker/DEPLOYMENT.md](./docker/DEPLOYMENT.md)
+- **Script**: [docker/deploy.sh](./docker/deploy.sh)
+- **Files**: [docker/Dockerfile](./docker/Dockerfile), [docker/docker-compose.yml](./docker/docker-compose.yml)
 - **Memory**: ~400-500 MB
 - **Best for**: Larger VMs or multi-service applications
 
 ## Quick Start
 
-1. Choose your deployment method
+1. Choose your deployment method (`uv/` or `docker/`)
 2. Follow the corresponding guide
 3. Use the deployment script for updates
 
-## Files
+## Directory Structure
 
-- `DEPLOYMENT-UV.md` - Complete guide for uv-based deployment
-- `DEPLOYMENT.md` - Complete guide for Docker-based deployment
-- `deploy-uv.sh` - Deployment script for uv setup
-- `deploy.sh` - Deployment script for Docker setup
-- `Dockerfile` - Docker image definition
-- `docker-compose.yml` - Docker Compose configuration
+```
+deployment/
+├── README.md           # This file
+├── uv/                 # uv-based deployment
+│   ├── DEPLOYMENT-UV.md
+│   └── deploy-uv.sh
+└── docker/             # Docker-based deployment
+    ├── DEPLOYMENT.md
+    ├── Dockerfile
+    ├── docker-compose.yml
+    └── deploy.sh
+```
+
