@@ -6,8 +6,8 @@ This directory contains all deployment-related files for the Pin Hill website.
 
 ### Option 1: uv + systemd (Recommended for small VMs)
 - **Directory**: [uv/](./uv/)
-- **Guide**: [uv/DEPLOYMENT-UV.md](./uv/DEPLOYMENT-UV.md)
-- **Script**: [uv/deploy-uv.sh](./uv/deploy-uv.sh)
+- **Guide**: [uv/DEPLOYMENT.md](./uv/DEPLOYMENT.md)
+- **Script**: [uv/deploy.sh](./uv/deploy.sh)
 - **Memory**: ~200-300 MB
 - **Best for**: e2-micro or similar small instances
 
@@ -31,8 +31,8 @@ This directory contains all deployment-related files for the Pin Hill website.
 deployment/
 ├── README.md           # This file
 ├── uv/                 # uv-based deployment
-│   ├── DEPLOYMENT-UV.md
-│   └── deploy-uv.sh
+│   ├── DEPLOYMENT.md
+│   └── deploy.sh
 └── docker/             # Docker-based deployment
     ├── DEPLOYMENT.md
     ├── Dockerfile
