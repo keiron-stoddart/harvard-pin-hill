@@ -16,9 +16,6 @@ This guide covers deploying the Pin Hill website to a GCP VM using `uv` (without
 # Update system
 sudo apt update && sudo apt upgrade -y
 
-# Install Python 3.12
-sudo apt install -y python3.12 python3.12-venv
-
 # Install uv
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
@@ -27,7 +24,6 @@ source ~/.bashrc
 
 # Verify
 uv --version
-python3.12 --version
 ```
 
 ### 2. Clone the Repository
